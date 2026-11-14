@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu 2026 em flor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF3E4;--card:#FFF9EE;--ink:#4A2E22;--soft:#8A6A5A;--terra:#C65D3B;--lime:#A9CB3F;--olive:#5E6F1E;--line:#EBD9BD;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2B1C16;--card:#38261E;--ink:#F6E9D2;--soft:#CDB49C;--terra:#E07A56;--lime:#B9DA52;--olive:#C5DD7A;--line:#52382C}}
+:root[data-theme="dark"]{--bg:#2B1C16;--card:#38261E;--ink:#F6E9D2;--soft:#CDB49C;--terra:#E07A56;--lime:#B9DA52;--olive:#C5DD7A;--line:#52382C}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',Georgia,sans-serif;line-height:1.55;min-height:100vh;position:relative;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;margin:0}
+.wrap{max-width:640px;margin:0 auto;padding:28px 20px 60px;position:relative;z-index:1}
+.deco{position:fixed;width:230px;height:230px;z-index:0;pointer-events:none;opacity:.9}
+.tl{top:0;left:-30px}.br{bottom:0;right:-30px;transform:rotate(180deg)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:30px 22px;box-shadow:0 10px 30px rgba(198,93,59,.10)}
+.eyebrow{color:var(--terra);letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+h1{font-size:2.3rem;line-height:1.15;margin:8px 0 12px}
+h1 em{color:var(--terra);font-weight:400}
+h2{font-size:1.6rem;margin:6px 0 8px}
+p.lead{color:var(--soft);margin:0 0 20px}
+input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;margin-bottom:12px;outline:none;resize:none}
+input[type=text]:focus,textarea:focus{border-color:var(--terra)}
+.btn{font:inherit;font-weight:600;border:0;border-radius:999px;padding:13px 28px;cursor:pointer;background:var(--terra);color:#FFF6E6;margin-top:6px}
+.btn.alt{background:transparent;color:var(--terra);border:1.5px solid var(--terra)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:8px;margin-bottom:18px}
+.dots i{width:26px;height:6px;border-radius:6px;background:var(--line)}
+.dots i.on{background:var(--lime)}
+.hide{display:none}
+.area{margin-bottom:20px}
+.area .top{display:flex;justify-content:space-between;align-items:baseline}
+.area b{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.05rem}
+.val{color:var(--terra);font-family:'Fraunces',Georgia,serif;font-size:1.4rem;font-weight:600}
+input[type=range]{width:100%;accent-color:var(--terra);height:28px;margin:4px 0 0}
+.scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--soft)}
+.grp{margin-bottom:18px}
+.grp h3{font-size:1.05rem;color:var(--terra);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+.chip.on{background:var(--lime);border-color:var(--olive);color:#2F3A0B;font-weight:600}
+.chip.fix{cursor:default}
+.sub{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;margin:22px 0 6px}
+.note{font-size:.85rem;color:var(--soft);margin:0 0 10px}
+.report{text-align:center}
+.report h1{font-size:2rem}
+.who{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--soft);font-size:1.15rem}
+.flower-row{display:flex;justify-content:center;margin-bottom:6px}
+.sec{text-align:left;margin:22px 0;border-radius:22px;padding:18px}
+.sec h3{font-size:1.15rem;margin-bottom:10px}
+.sec.t{background:rgba(198,93,59,.12);border:1.5px solid var(--terra)}.sec.t h3{color:var(--terra)}
+.sec.g{background:rgba(169,203,63,.2);border:1.5px solid var(--lime)}.sec.g h3{color:var(--olive)}
+.line{margin:0 0 8px;font-size:.95rem}.line b{font-family:'Fraunces',Georgia,serif}
+.goal{background:var(--terra);color:#FFF6E6;border-radius:24px;padding:24px 22px;text-align:left}
+.goal small{letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.goal p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.35rem;line-height:1.35;margin:10px 0 0}
+#chart{width:100%;max-width:380px;height:auto;display:block;margin:10px auto 0}
+.sec.o{background:var(--bg);border:1.5px dashed var(--terra)}.sec.o h3{color:var(--terra)}
+.msg{margin:0;font-family:'Fraunces',Georgia,serif;font-size:1.05rem;line-height:1.6}
+.pdfing .row{display:none!important}
+@media print{
+ @page{margin:12mm}
+ .deco,.row,.dots{display:none!important}
+ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .card{box-shadow:none}.sec,.goal{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="flower" viewBox="-20 -20 40 40">
+<g fill="#C65D3B"><ellipse cx="0" cy="-10" rx="6" ry="9"/><ellipse cx="0" cy="-10" rx="6" ry="9" transform="rotate(72)"/><ellipse cx="0" cy="-10" rx="6" ry="9" transform="rotate(144)"/><ellipse cx="0" cy="-10" rx="6" ry="9" transform="rotate(216)"/><ellipse cx="0" cy="-10" rx="6" ry="9" transform="rotate(288)"/></g>
+<circle r="5" fill="#F6E3A8"/>
+</symbol>
+<symbol id="branch" viewBox="0 0 230 230">
+<path d="M0 20 C70 30 130 80 190 200" stroke="#6F8A22" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M20 5 C60 50 70 100 60 170" stroke="#8DAE2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<g fill="#A9CB3F"><ellipse cx="45" cy="34" rx="16" ry="7" transform="rotate(30 45 34)"/><ellipse cx="85" cy="55" rx="17" ry="7" transform="rotate(55 85 55)"/><ellipse cx="120" cy="95" rx="17" ry="7" transform="rotate(70 120 95)"/><ellipse cx="150" cy="140" rx="16" ry="7" transform="rotate(80 150 140)"/><ellipse cx="38" cy="75" rx="15" ry="6" transform="rotate(100 38 75)"/><ellipse cx="55" cy="120" rx="15" ry="6" transform="rotate(95 55 120)"/><ellipse cx="108" cy="62" rx="14" ry="6" transform="rotate(-20 108 62)"/><ellipse cx="170" cy="115" rx="14" ry="6" transform="rotate(10 170 115)"/></g>
+<use href="#flower" x="62" y="2" width="34" height="34"/>
+<use href="#flower" x="2" y="58" width="30" height="30"/>
+<use href="#flower" x="130" y="52" width="28" height="28"/>
+<use href="#flower" x="176" y="150" width="32" height="32"/>
+</symbol>
+</defs>
+</svg>
+<svg class="deco tl"><use href="#branch" width="230" height="230"/></svg>
+<svg class="deco br"><use href="#branch" width="230" height="230"/></svg>
+
+<main class="wrap">
+ <section class="card" id="s0">
+  <div class="flower-row"><svg width="54" height="54"><use href="#flower" width="54" height="54"/></svg></div>
+  <div class="eyebrow">Retrospectiva</div>
+  <h1>Meu 2026 <em>em flor</em></h1>
+  <p class="lead">Um momento de pausa para olhar como você termina o ano, o que pode ficar para trás e onde quer colocar sua energia em 2027.</p>
+  <p class="note">Seu nome vai aparecer no relatório final (opcional).</p>
+  <input type="text" id="nome" placeholder="Escreva seu nome aqui" autocomplete="given-name">
+  <button class="btn" data-next>Começar</button>
+ </section>
+
+ <section class="card hide" id="s1">
+  <div class="dots"><i class="on"></i><i></i><i></i></div>
+  <div class="eyebrow">Passo 1 de 3</div>
+  <h2>Como eu termino o ano</h2>
+  <p class="lead">Mova a barrinha de 0 a 10 em cada área da vida. Sem certo ou errado, só o que é verdade hoje.</p>
+  <div id="areas"></div>
+  <div class="row"><button class="btn alt" data-prev>Voltar</button><button class="btn" data-next>Continuar</button></div>
+ </section>
+
+ <section class="card hide" id="s2">
+  <div class="dots"><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="eyebrow">Passo 2 de 3</div>
+  <h2>O que eu deixo</h2>
+  <p class="lead">O que mais pesou e não precisa ir para 2027. Toque para marcar o que faz sentido em cada área.</p>
+  <div id="deixo"></div>
+  <div class="row"><button class="btn alt" data-prev>Voltar</button><button class="btn" data-next>Continuar</button></div>
+ </section>
+
+ <section class="card hide" id="s3">
+  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="eyebrow">Passo 3 de 3</div>
+  <h2>O que eu levo</h2>
+  <div class="sub">O que me sustentou em 2026</div>
+  <p class="note">Marque quantas quiser.</p>
+  <div class="chips" id="sust"></div>
+  <div class="sub">Onde coloco minha energia em 2027</div>
+  <p class="note">Escolha até 3 áreas.</p>
+  <div class="chips" id="energia"></div>
+  <div class="sub">Minha frase para 2027</div>
+  <textarea id="meta" rows="2" placeholder="Uma meta ou uma realização que quero plantar…"></textarea>
+  <div class="row"><button class="btn alt" data-prev>Voltar</button><button class="btn" id="ver">Ver meu relatório</button></div>
+ </section>
+
+ <section class="card report hide" id="rep">
+  <div class="flower-row"><svg width="54" height="54"><use href="#flower" width="54" height="54"/></svg></div>
+  <div class="eyebrow">Retrospectiva 2026</div>
+  <h1>Meu ano <em>em flor</em></h1>
+  <div class="who" id="quem"></div>
+  <svg id="chart" viewBox="0 0 380 380" role="img" aria-label="Flor das áreas da vida"></svg>
+  <div class="sec t"><h3>O que eu deixo em 2026</h3><div id="rd"></div></div>
+  <div class="sec g"><h3>O que eu levo para 2027</h3>
+   <p class="line"><b>Me sustentou:</b></p><div class="chips" id="rs" style="margin-bottom:14px"></div>
+   <p class="line"><b>Minha energia vai para:</b></p><div class="chips" id="re"></div></div>
+  <div class="sec o"><h3>Uma mensagem para 2027 ✿</h3><p class="msg" id="msg"></p></div>
+  <div class="goal"><small>Minha frase para 2027</small><p id="lm"></p></div>
+  <div class="row" style="justify-content:center;margin-top:22px">
+   <button class="btn" id="pdf">Salvar em PDF</button>
+   <button class="btn alt" id="again">Recomeçar</button>
+  </div>
+ </section>
+</main>
+
+<script>
+(function(){
+ var A=[
+  ["Corpo e saúde","Corpo",["Cansaço","Descuido com o corpo","Maus hábitos","Dores"]],
+  ["Emoções","Emoções",["Ansiedade","Culpa","Mágoas antigas","Sobrecarga"]],
+  ["Autoestima","Autoestima",["Autocrítica","Comparação","Insegurança","Perfeccionismo"]],
+  ["Relacionamento amoroso","Amor",["Expectativas","Ciúmes","Relação que me esgota","Medo de me abrir"]],
+  ["Família","Família",["Cobranças","Conflitos","Querer resolver tudo","Distância"]],
+  ["Trabalho e Projetos","Trabalho",["Excesso de tarefas","Procrastinação","Projetos sem sentido","Falta de limites"]],
+  ["Dinheiro","Dinheiro",["Dívidas","Gastos por impulso","Desorganização","Medo de cobrar"]],
+  ["Tempo pra mim","Tempo",["Culpa por descansar","Dizer sim demais","Agenda lotada","Celular demais"]]];
+ var SU=["Minha fé","Minha coragem","Rede de apoio","Amizades","Rotina","Autocuidado","Meu trabalho","Descanso","Família","Aprendizados","Gratidão","Persistência"];
+ var steps=["s0","s1","s2","s3","rep"],cur=0,score=A.map(function(){return 5}),
+     deixo=A.map(function(){return {}}),sust={},ener={};
+ function $(i){return document.getElementById(i)}
+ function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+ function show(i){cur=i;steps.forEach(function(id,k){$(id).classList.toggle("hide",k!==i)});window.scrollTo(0,0)}
+ function chip(txt,store,key,max){
+  var b=el("button","chip",txt);b.type="button";
+  b.onclick=function(){
+   if(store[key]){delete store[key];b.classList.remove("on")}
+   else{if(max&&Object.keys(store).length>=max)return;store[key]=1;b.classList.add("on")}};
+  return b}
+ /* passo 1 */
+ A.forEach(function(a,i){
+  var d=el("div","area"),t=el("div","top"),v=el("span","val","5"),r=el("input");
+  t.appendChild(el("b","",a[0]));t.appendChild(v);
+  r.type="range";r.min=0;r.max=10;r.step=1;r.value=5;
+  r.oninput=function(){score[i]=+r.value;v.textContent=r.value};
+  var s=el("div","scale");s.appendChild(el("span","","0"));s.appendChild(el("span","","10"));
+  d.appendChild(t);d.appendChild(r);d.appendChild(s);$("areas").appendChild(d)});
+ /* passo 2 */
+ A.forEach(function(a,i){
+  var g=el("div","grp"),c=el("div","chips");g.appendChild(el("h3","",a[0]));
+  a[2].forEach(function(o){c.appendChild(chip(o,deixo[i],o))});
+  g.appendChild(c);$("deixo").appendChild(g)});
+ /* passo 3 */
+ SU.forEach(function(o){$("sust").appendChild(chip(o,sust,o))});
+ A.forEach(function(a,i){$("energia").appendChild(chip(a[0],ener,i,3))});
+ /* navegação */
+ document.querySelectorAll("[data-next]").forEach(function(b){b.onclick=function(){show(cur+1)}});
+ document.querySelectorAll("[data-prev]").forEach(function(b){b.onclick=function(){show(cur-1)}});
+ /* flor do relatório */
+ function flower(){
+  var NS="http://www.w3.org/2000/svg",s=$("chart");s.innerHTML="";
+  function n(t,at){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);return e}
+  var g=n("g",{});
+  [30,70,110].forEach(function(r){g.appendChild(n("circle",{cx:190,cy:190,r:r,fill:"none",stroke:"#EBD9BD","stroke-dasharray":"3 4"}))});
+  s.appendChild(g);
+  A.forEach(function(a,i){
+   var ang=i*45,L=14+score[i]*9.6;
+   s.appendChild(n("ellipse",{cx:0,cy:-L/2,rx:19,ry:L/2,fill:i%2?"#A9CB3F":"#C65D3B",opacity:.88,transform:"translate(190,190) rotate("+ang+")"}));
+   var rad=(ang-90)*Math.PI/180,lx=190+Math.cos(rad)*152,ly=190+Math.sin(rad)*152,
+       tx=n("text",{x:lx,y:ly,"text-anchor":"middle","font-size":12,"font-family":"Nunito,sans-serif",fill:"#8A6A5A"});
+   tx.textContent=a[1]+" "+score[i];s.appendChild(tx)});
+  s.appendChild(n("circle",{cx:190,cy:190,r:9,fill:"#F6E3A8"}))}
+ $("ver").onclick=function(){
+  var nm=$("nome").value.trim();$("quem").textContent=nm?"por "+nm:"";
+  flower();
+  var rd=$("rd");rd.innerHTML="";var any=false;
+  A.forEach(function(a,i){var k=Object.keys(deixo[i]);if(k.length){any=true;var p=el("p","line");p.appendChild(el("b","",a[0]+": "));p.appendChild(document.createTextNode(k.join(", ")));rd.appendChild(p)}});
+  if(!any)rd.appendChild(el("p","line","Deixo ir tudo o que já não me serve."));
+  function fillChips(id,arr,fb){var c=$(id);c.innerHTML="";(arr.length?arr:[fb]).forEach(function(t){c.appendChild(el("span","chip on fix",t))})}
+  fillChips("rs",Object.keys(sust),"Tudo o que me trouxe até aqui");
+  fillChips("re",Object.keys(ener).map(function(i){return A[i][0]}),"Onde meu coração pedir");
+  $("lm").textContent="“"+($("meta").value.trim()||"Que 2027 floresça com calma e coragem.")+"”";
+  function lista(a){return a.length>1?a.slice(0,-1).join(", ")+" e "+a[a.length-1]:a.join("")}
+  function lw(x){return x.toLowerCase()}
+  var ord=A.map(function(a,i){return i}).sort(function(x,y){return score[y]-score[x]});
+  var tp=ord.slice(0,2).map(function(i){return lw(A[i][0])}),low=ord[ord.length-1];
+  var sk=Object.keys(sust).slice(0,3).map(lw),dk=[];
+  deixo.forEach(function(o){dk=dk.concat(Object.keys(o))});dk=dk.slice(0,3).map(lw);
+  var en=Object.keys(ener).map(function(i){return lw(A[i][0])});
+  var m="Olhando para a sua flor, dá para ver o quanto você já cultivou em "+lista(tp)+". Isso é raiz firme para 2027. ";
+  if(sk.length)m+="O que te sustentou este ano ("+lista(sk)+") continua com você, onde quer que você vá. ";
+  if(dk.length)m+="Ao deixar para trás "+lista(dk)+", você abre espaço para respirar e começar leve. ";
+  if(en.length)m+="E ao colocar sua energia em "+lista(en)+", você escolhe florescer com intenção. ";
+  if(score[low]<=6&&score[low]<score[ord[0]])m+="A área de "+lw(A[low][0])+" pede mais carinho agora, e tudo bem: cada flor tem o seu tempo. ";
+  m+="2027 chega como um jardim cheio de possibilidades. Vá no seu ritmo, você já tem tudo o que precisa para florescer.";
+  $("msg").textContent=m;
+  show(4)};
+ $("pdf").onclick=function(){
+  var b=$("pdf"),old=b.textContent;
+  function fb(){try{window.print()}catch(e){alert("Use a opção Imprimir do navegador e escolha “Salvar como PDF”.")}}
+  if(!window.html2pdf){fb();return}
+  b.textContent="Gerando PDF…";document.body.classList.add("pdfing");window.scrollTo(0,0);
+  var bg=getComputedStyle(document.body).backgroundColor;
+  html2pdf().set({margin:8,filename:"meu-2026-em-flor.pdf",image:{type:"jpeg",quality:.95},html2canvas:{scale:2,backgroundColor:bg,useCORS:true},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"},pagebreak:{mode:["css","avoid-all"]}}).from($("rep")).save()
+  .then(function(){b.textContent=old;document.body.classList.remove("pdfing")})
+  .catch(function(){b.textContent=old;document.body.classList.remove("pdfing");fb()})};
+ $("again").onclick=function(){location.reload()};
+})();
+</script>
+</body>
+</html>
